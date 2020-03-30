@@ -461,12 +461,18 @@ $table-cell-vertical-align:   top !default;
 
 $table-color:                 $body-color !default;
 $table-bg:                    transparent !default;
-$table-accent-bg-factor:      .05 !default;
-$table-accent-bg:             rgba($black, $table-accent-bg-factor) !default;
+
+$table-striped-color:         $table-color !default;
+$table-striped-bg-factor:      .05 !default;
+$table-striped-bg:             rgba($black, $table-striped-bg-factor) !default;
+
+$table-active-color:          $table-color !default;
+$table-active-bg-factor:      .1 !default;
+$table-active-bg:             rgba($black, $table-active-bg-factor) !default;
+
 $table-hover-color:           $table-color !default;
 $table-hover-bg-factor:       .075 !default;
 $table-hover-bg:              rgba($black, $table-hover-bg-factor) !default;
-$table-active-bg:             $table-hover-bg !default;
 
 $table-border-factor:         .1 !default;
 $table-border-width:          $border-width !default;
@@ -489,7 +495,6 @@ $table-variants: (
   "danger":     color-level($danger, $table-bg-level),
   "light":      $light,
   "dark":       $dark,
-  "active":     $table-active-bg,
 ) !default;
 
 

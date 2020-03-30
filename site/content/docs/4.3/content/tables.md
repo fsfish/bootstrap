@@ -60,6 +60,116 @@ Add `.table-hover` to enable a hover state on table rows within a `<tbody>`.
 
 {{< table class="table table-dark table-hover" >}}
 
+### Active tables
+
+Highlight a table row or cell by adding a `.table-active` class.
+
+<div class="bd-example">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-active">
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2" class="table-active">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{{< highlight html >}}
+<table class="table">
+  <thead>
+    ...
+  </thead>
+  <tbody>
+    <tr class="table-active">
+      ...
+    </tr>
+    <tr>
+      ...
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2" class="table-active">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+{{< /highlight >}}
+
+<div class="bd-example">
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-active">
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2" class="table-active">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{{< highlight html >}}
+<table class="table table-dark">
+  <thead>
+    ...
+  </thead>
+  <tbody>
+    <tr class="table-active">
+      ...
+    </tr>
+    <tr>
+      ...
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2" class="table-active">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+{{< /highlight >}}
+
 ### Small tables
 
 Add `.table-sm` to make any `.table` more compact by cutting all cell `padding` in half.
@@ -149,11 +259,6 @@ Use contextual classes to color table rows or individual cells.
       </tr>
     </thead>
     <tbody>
-      <tr class="table-active">
-        <th scope="row">Active</th>
-        <td>Cell</td>
-        <td>Cell</td>
-      </tr>
       <tr>
         <th scope="row">Default</th>
         <td>Cell</td>
@@ -173,16 +278,14 @@ Use contextual classes to color table rows or individual cells.
 </div>
 
 {{< highlight html >}}
-<!-- On rows -->
-<tr class="table-active">...</tr>{{< table.inline >}}
+<!-- On rows -->{{< table.inline >}}
 {{- range (index $.Site.Data "theme-colors") }}
 <tr class="table-{{ .name }}">...</tr>
 {{- end -}}
 {{< /table.inline >}}
 
 <!-- On cells (`td` or `th`) -->
-<tr>
-  <td class="table-active">...</td>{{< table.inline >}}
+<tr>{{< table.inline >}}
 {{- range (index $.Site.Data "theme-colors") }}
   <td class="table-{{ .name }}">...</td>
 {{- end -}}

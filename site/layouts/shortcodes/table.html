@@ -15,7 +15,7 @@
   {{- $table_attributes = printf ` class="%s"` . -}}
 {{- end -}}
 
-{{- if eq $simplified false -}}
+{{- if eq $simplified "false" -}}
   {{- $table_content = partialCached "table-content" . -}}
 {{- end -}}
 

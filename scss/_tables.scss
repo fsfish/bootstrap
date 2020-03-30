@@ -7,10 +7,13 @@
   --table-border-width: 0;
   --table-border-bottom-width: #{$table-border-width};
   --table-bg: #{$table-bg};
-  --table-accent-bg: #{$table-accent-bg};
-  --table-hover-bg: #{$table-hover-bg};
-  --table-hover-color: #{$table-hover-color};
+  --table-accent-bg: transparent;
+  --table-striped-color: #{$table-striped-color};
+  --table-striped-bg: #{$table-striped-bg};
+  --table-active-color: #{$table-active-color};
   --table-active-bg: #{$table-active-bg};
+  --table-hover-color: #{$table-hover-color};
+  --table-hover-bg: #{$table-hover-bg};
   --table-children-border-width: #{$table-children-border-width};
 
   width: 100%;
@@ -27,6 +30,7 @@
   > :not(caption) > * > * {
     padding: var(--table-cell-padding);
     background-color: var(--table-bg);
+    background-image: linear-gradient(var(--table-accent-bg), var(--table-accent-bg));
     border-width: var(--table-border-width) var(--table-border-width) var(--table-border-bottom-width);
   }
 
@@ -81,20 +85,29 @@
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
 
 .table-striped {
-  > tbody > tr:nth-of-type(#{$table-striped-order}) > * {
-    background-image: linear-gradient(var(--table-accent-bg), var(--table-accent-bg));
+  > tbody > tr:nth-of-type(#{$table-striped-order}) {
+    --table-accent-bg: var(--table-striped-bg);
+    color: var(--table-striped-color);
   }
 }
 
+// Active table
+//
+// The `.table-active` class can be added to highlight rows or cells
+
+.table-active {
+  --table-accent-bg: var(--table-active-bg);
+  color: var(--table-active-color);
+}
 
 // Hover effect
 //
 // Placed here since it has to come after the potential zebra striping
 
 .table-hover {
-  > tbody > tr:hover > * {
+  > tbody > tr:hover {
+    --table-accent-bg: var(--table-hover-bg);
     color: var(--table-hover-color);
-    background-image: linear-gradient(var(--table-hover-bg), var(--table-hover-bg));
   }
 }
 
